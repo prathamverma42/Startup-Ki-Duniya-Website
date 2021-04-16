@@ -18,7 +18,7 @@ const NavbarStyle = {
 
 
 
-const NavBar = () => {
+const CompanyNavbar = () => {
 
   const [show, setShow] = useState(false);
 
@@ -34,21 +34,19 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link style={fontStyle}><Link to="/" style={NavbarStyle}>Home</Link></Nav.Link>
-            <Nav.Link style={fontStyle}><Link to="/dashboard" style={NavbarStyle}>Dashboard</Link></Nav.Link>
+            <Nav.Link style={fontStyle}><Link to="/companyhome" style={NavbarStyle}>Home</Link></Nav.Link>
+            <Nav.Link style={fontStyle}><Link to="/companydashboard" style={NavbarStyle}>Dashboard</Link></Nav.Link>
             <Nav.Link style={fontStyle}><Link to="/applicationstatus" style={NavbarStyle}>Application Status</Link></Nav.Link>
             <Form inline>
-              <FormControl type="text" placeholder="Search" className="mx-4 mr-sm-0 my-1" />
-              <Button variant="outline-primary my-2 my-sm-0 mx-2">Search</Button>
             </Form>
           </Nav>
           <Nav>
             <Button className="btn-lg font-weight-bold mx-2 my-1" onClick={() => {
               handleShow()
-            }}>User Register/Login</Button>
+            }}>Register/Login</Button>
             <Route render={({ history }) => (
-              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { history.push('/companyhome') }}>
-                Manage Startup/Company
+              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { history.push('/') }}>
+                Get Hired 
               </Button>
             )} />
           </Nav>
@@ -58,4 +56,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar;
+export default CompanyNavbar;
