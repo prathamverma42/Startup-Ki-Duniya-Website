@@ -11,6 +11,7 @@ import CompanyDashboard from './Components/Pages/CompanyDashboard';
 import CompanyNavbar from './Components/CompanyNavbar';
 import HomeCompany from './Components/Pages/HomeCompany';
 import CompanyApplications from './Components/Pages/CompanyApplications';
+import CompanyRegisteration from './Components/Pages/CompanyRegisteration';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/companyhome" component = {HomeCompany}/>
         <Route exact path="/companydashboard" component = {CompanyDashboard}/>
         <Route exact path="/companyapplications" component = {CompanyApplications}/>
+        <Route exact path="/companyregistration" component = {CompanyRegisteration}/>
       </Switch>
       <Footer/>
       </>

@@ -34,6 +34,14 @@ const UserRegistration = ()=>{
     <Form.Label>Your Current Expertise</Form.Label>
     <Form.Control type="text" placeholder="For Eg: Computer Science" />
   </Form.Group>
+  <Form.Group controlId="City">
+    <Form.Label>Your Current City</Form.Label>
+    <Form.Control type="text" placeholder="For Eg: New Delhi" />
+  </Form.Group>
+  <Form.Group controlId="State">
+    <Form.Label>Your Current State</Form.Label>
+    <Form.Control type="text" placeholder="For Eg: Punjab" />
+  </Form.Group>
 
   <Form.Group controlId="age">
     <Form.Label>Age</Form.Label>
@@ -44,6 +52,7 @@ const UserRegistration = ()=>{
   <Form.Group controlId="gender">
     <Form.Label>Gender</Form.Label>
     <Form.Control as="select">
+      
       <option>Male</option>
       <option>Female</option>
       <option>TranGender</option>

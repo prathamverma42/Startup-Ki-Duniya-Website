@@ -1,7 +1,7 @@
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import { useState } from 'react';
-import UserRegistrationModal from './UserLogin';
+import CompanyRegisteration from './CompanyLogin';
 
 
 const fontStyle = {
@@ -24,7 +24,7 @@ const CompanyNavbar = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-      <UserRegistrationModal show={show} handleClose={handleClose} />
+      <CompanyRegisteration show={show} handleClose={handleClose} />
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="font-weight-bold h5 fixed-top">
 
         <Navbar.Brand className="mx-2">Startup Ki Duniya</Navbar.Brand>
