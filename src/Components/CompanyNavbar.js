@@ -19,12 +19,9 @@ const NavbarStyle = {
 
 
 const CompanyNavbar = () => {
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   return (
     <>
       <UserRegistrationModal show={show} handleClose={handleClose} />
@@ -36,7 +33,7 @@ const CompanyNavbar = () => {
           <Nav className="mr-auto">
             <Nav.Link style={fontStyle}><Link to="/companyhome" style={NavbarStyle}>Home</Link></Nav.Link>
             <Nav.Link style={fontStyle}><Link to="/companydashboard" style={NavbarStyle}>Dashboard</Link></Nav.Link>
-            <Nav.Link style={fontStyle}><Link to="/applicationstatus" style={NavbarStyle}>Application Status</Link></Nav.Link>
+            <Nav.Link style={fontStyle}><Link to="/companyapplications" style={NavbarStyle}>Application Status</Link></Nav.Link>
             <Form inline>
             </Form>
           </Nav>
