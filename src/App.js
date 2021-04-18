@@ -12,12 +12,18 @@ import CompanyNavbar from './Components/CompanyNavbar';
 import HomeCompany from './Components/Pages/HomeCompany';
 import CompanyApplications from './Components/Pages/CompanyApplications';
 import CompanyRegisteration from './Components/Pages/CompanyRegisteration';
+import {useState} from 'react';
 
 function App() {
+
+  const [navBar,setNavbar] = useState(true);
+
+
   return (
       <>
-      {/* <NavBar/> */}
-      <CompanyNavbar/>
+      {navBar?<NavBar changeNav={setNavbar}/>:<CompanyNavbar changeNav={setNavbar}/>}
+      {/* <NavBar/>
+      <CompanyNavbar/> */}
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/dashboard" component={Dashboard}/>

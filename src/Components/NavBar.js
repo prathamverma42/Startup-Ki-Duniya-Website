@@ -3,7 +3,6 @@ import { Link, Route } from 'react-router-dom';
 import { useState } from 'react';
 import UserRegistrationModal from './UserLogin';
 
-
 const fontStyle = {
   'fontWeight': 'bold',
   'fontSize': '22px'
@@ -18,7 +17,7 @@ const NavbarStyle = {
 
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
   const [show, setShow] = useState(false);
 
@@ -47,7 +46,9 @@ const NavBar = () => {
               handleShow()
             }}>User Register/Login</Button>
             <Route render={({ history }) => (
-              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { history.push('/companyhome') }}>
+              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { 
+                props.changeNav(false);
+                history.push('/companyhome') }}>
                 Manage Startup/Company
               </Button>
             )} />

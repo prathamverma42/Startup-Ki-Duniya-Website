@@ -1,4 +1,4 @@
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import { useState } from 'react';
 import CompanyRegisteration from './CompanyLogin';
@@ -18,7 +18,7 @@ const NavbarStyle = {
 
 
 
-const CompanyNavbar = () => {
+const CompanyNavbar = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,7 +42,9 @@ const CompanyNavbar = () => {
               handleShow()
             }}>Register/Login</Button>
             <Route render={({ history }) => (
-              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { history.push('/') }}>
+              <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => {
+                props.changeNav(true)
+                 history.push('/') }}>
                 Get Hired 
               </Button>
             )} />
