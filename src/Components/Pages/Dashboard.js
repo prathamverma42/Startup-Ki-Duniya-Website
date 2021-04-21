@@ -2,21 +2,46 @@ import {Table,ProgressBar,Button} from 'react-bootstrap';
 import {useState} from 'react';
 import UserProfileModal from '../UserProfileModal';
 
+let name=""
+let field=""
+let description=""
+let techSkills = []
+let nontechSkills = []
+let education = []
+
+let programmingLanguages =[]
+
+
 const Dashboard = ()=>{
+
+    // eslint-disable-next-line
+    const [updatePage,setUpdatePage] = useState(true);
+
+    function updateDashBoard(newname,newfield,newDescription,newTechSkills,newnontechSkills,newEducation,newProgrammingLanguages)
+    {
+      name = newname
+      field = newfield
+      description = newDescription
+      techSkills = newTechSkills
+      nontechSkills = newnontechSkills
+      education = newEducation
+      programmingLanguages = newProgrammingLanguages
+      setUpdatePage((prev)=>!prev)
+    }
+
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
 
-
     return (
         <>
-        <UserProfileModal show={show} handleClose={handleClose}/>
+        <UserProfileModal update={updateDashBoard} show={show} handleClose={handleClose}/>
         <div className="container bg-dark text-light my-3 py-3">
             <h1 className="text-center my-3">Manage your Profile/Resume</h1>
 
-            <h3>Name : ABC </h3>
-            <h3 className="my-3">Field of Expertise : Computer Science</h3>
+            <h3>Name : {name} </h3>
+            <h3 className="my-3">Field of Expertise : {field}</h3>
             <h2> Education </h2>
 
     <Table striped bordered hover variant="light" className="table-responsive-md ">
@@ -29,53 +54,55 @@ const Dashboard = ()=>{
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>2020</td>
-      <td>Class X Board</td>
-      <td>CBSE</td>
-      <td>92%</td>
-    </tr>
-    <tr>
-      <td>2020</td>
-      <td>Class X Board</td>
-      <td>CBSE</td>
-      <td>92%</td>
-    </tr>
-    <tr>
-      <td>2020</td>
-      <td>Class X Board</td>
-      <td>CBSE</td>
-      <td>92%</td>
-    </tr>
+  {
+    education.map((elem)=>{
+      return (
+        <tr>
+          <td>{elem.Year}</td>
+          <td>{elem.Exam}</td>
+          <td>{elem.Board}</td>
+          <td>{elem.Marks}</td>
+        </tr>
+      )
+    })
+  }
+  
   </tbody>
 </Table>
 
 <h2>Description : </h2> 
-<p className="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quia dolores mollitia totam dignissimos aperiam natus, quisquam aliquid dolorem voluptatem sed ex laboriosam tempora? Nobis adipisci eius veniam minima dolores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus nam molestiae? Fugit autem molestiae qui natus! Dolor magnam modi, id suscipit illum cum, voluptates nam in quo, quisquam rerum?</p>
+<p className="h5">{description}</p>
 
 <h2>Skill Set:</h2>
 
 <h3>Programming Languages: </h3>
 <ol className = "h4 py-3" >
-<li className="my-2">C++ :<ProgressBar variant="success" animated now={60} className="my-2"/></li>
-<li className="my-2">Python :<ProgressBar variant="danger" animated now={60} className="my-2"/></li>
-<li className="my-2">JS :<ProgressBar variant="warning" animated now={60} className="my-2"/></li>
-<li className="my-2">Java :<ProgressBar variant="primary" animated now={60} className="my-2"/></li>
+{
+  programmingLanguages.map((elem)=>{
+    return <li className="my-2">{elem.language}<ProgressBar variant="success" animated now={elem.rating} className="my-2"/></li>
+
+  })
+}
 </ol>
 
 
 <h2> Other Techincal Skills:</h2>
-<ol className = "h4 py-3" >
-   <li>Docker</li> 
-   <li>Android App Developmet</li>
-   <li>Web Development</li>
+<ol className = "h4 py-3" > 
+  {
+   techSkills.map((elem)=>{
+     return <li>{elem}</li>
+   })
+  }
+   
 </ol>
 
 <h2> Other Non Techincal Skills:</h2>
 <ol className = "h4 py-3" >
-   <li>Video Editing</li> 
-   <li>Good Negotiation Skills</li>
-   <li>Good Mediator</li>
+{
+   nontechSkills.map((elem)=>{
+     return <li>{elem}</li>
+   })
+  }
 </ol>
 
 
