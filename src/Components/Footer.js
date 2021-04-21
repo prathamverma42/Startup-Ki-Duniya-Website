@@ -6,7 +6,7 @@ const Footer = ()=>{
             
           <footer className="container-fluid bg-dark my-0 py-3 text-light sticky-bottom">
           <h4 className="text-center">All Rights Reserved</h4>
-          <p class="mb-0 text-center">&copy; {year}-{year+1} Startup Ki Duniya</p>
+          <p className="mb-0 text-center">&copy; {year}-{year+1} Startup Ki Duniya</p>
         </footer>
       
       )
