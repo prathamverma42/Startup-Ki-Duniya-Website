@@ -4,7 +4,7 @@ import {Carousel} from 'react-bootstrap';
 
 const CarouselItem = (props)=> {
     return (
-        <Carousel>
+        <Carousel >
         {
             props.Carouselelem.map((item)=>{
                 return (

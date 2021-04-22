@@ -1,6 +1,7 @@
+
 import CarouselItem from '../Carouseltem';
 const Carouselelem = [
-    <div className="container bg-dark text-light my-5">
+    <div className="container  text-dark  my-5">
     <h2>Portal Features for Candidates:</h2> 
     <ol className="h4 font-weight-light">
         <li>Search for well established startups and apply for them.</li>
@@ -11,7 +12,7 @@ const Carouselelem = [
     </ol>
     </div>
 ,
-<div className="container bg-dark text-light my-5">
+<div className="container  text-dark  my-5">
 <h2>Portal Features for Startups:</h2> 
 <ol className="h4 font-weight-light">
     <li>Search for Potential Candidates for your Startups</li>
@@ -29,7 +30,7 @@ const Home = ()=>{
 
     return (
         <>
-        <div className="container bg-dark text-light text-center my-5">
+        <div className="container shadow-lg text-dark text-center my-5">
         <h1 className="my-3"> Welcome to Startup Ki Duniya Portal</h1>
         <h3 className = "font-weight-light">Are you willing to work for any startup Idea? </h3>
         <h2> Or</h2>
@@ -44,7 +45,7 @@ const Home = ()=>{
 
 
 
-        <div className="bg-dark my-5 mx-5">
+        <div className="shadow-lg my-5 mx-5">
         <CarouselItem Carouselelem={Carouselelem}/>
         </div>
         </>
