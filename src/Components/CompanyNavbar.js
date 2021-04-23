@@ -11,7 +11,7 @@ const fontStyle = {
 
 const NavbarStyle = {
   textDecoration: 'inherit',
-  color: 'inherit',
+  color: 'white',
   fontWeight: 'bold',
 
 }

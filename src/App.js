@@ -25,7 +25,7 @@ function App() {
       {/* <NavBar/>
       <CompanyNavbar/> */}
       <Switch>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/"  component={Home}/>
         <Route exact path="/dashboard" component={Dashboard}/>
         <Route exact path="/applicationstatus" component={ApplicationStatus}/>
         <Route exact path="/userregistration" component = {UserRegistration}/>
