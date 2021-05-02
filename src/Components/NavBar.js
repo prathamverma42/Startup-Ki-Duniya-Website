@@ -47,7 +47,7 @@ const NavBar = (props) => {
             }}>User Register/Login</Button>
             <Route render={({ history }) => (
               <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => { 
-                props.changeNav(false);
+                props.changeNav(1);
                 history.push('/companyhome') }}>
                 Manage Startup/Company
               </Button>

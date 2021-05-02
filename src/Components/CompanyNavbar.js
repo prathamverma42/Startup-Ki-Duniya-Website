@@ -43,7 +43,7 @@ const CompanyNavbar = (props) => {
             }}>Register/Login</Button>
             <Route render={({ history }) => (
               <Button variant="danger" className="btn-lg font-weight-bold mx-2 my-1" onClick={() => {
-                props.changeNav(true)
+                props.changeNav(0)
                  history.push('/') }}>
                 Get Hired 
               </Button>

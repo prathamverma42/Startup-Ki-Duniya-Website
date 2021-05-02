@@ -12,18 +12,25 @@ import CompanyNavbar from './Components/CompanyNavbar';
 import HomeCompany from './Components/Pages/HomeCompany';
 import CompanyApplications from './Components/Pages/CompanyApplications';
 import CompanyRegisteration from './Components/Pages/CompanyRegisteration';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 function App() {
 
-  const [navBar,setNavbar] = useState(true);
+  const [navBar,setNavbar] = useState(0);
+  useEffect(() => {
+    const navbar = Number(localStorage.getItem("navBar") || 0)
+    setNavbar(navbar)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("navBar", navBar)
+  }, [navBar])
 
 
   return (
       <>
-      {navBar?<NavBar changeNav={setNavbar}/>:<CompanyNavbar changeNav={setNavbar}/>}
-      {/* <NavBar/>
-      <CompanyNavbar/> */}
+      {navBar===0? <NavBar changeNav={setNavbar}/>:<CompanyNavbar changeNav={setNavbar}/>}
+
       <Switch>
         <Route exact path="/"  component={Home}/>
         <Route exact path="/dashboard" component={Dashboard}/>
