@@ -36,12 +36,16 @@ const Dashboard = ()=>{
 
     return (
         <>
+        <h1 className="text-center my-3">Profile/Resume</h1>
         <UserProfileModal update={updateDashBoard} show={show} handleClose={handleClose}/>
-        <div className="container bg-dark text-light my-3 py-3">
-            <h1 className="text-center my-3">Manage your Profile/Resume</h1>
-
-            <h3>Name : {name} </h3>
-            <h3 className="my-3">Field of Expertise : {field}</h3>
+        <div className="container shadow-lg text-dark my-3 py-3">
+          {
+            name ===''? <h1>Name</h1> : <h1>{name}</h1>
+          }
+          {
+            
+          }
+            <h6 className="my-3">Field of Expertise : {field}</h6>
             <h2> Education </h2>
 
     <Table striped bordered hover variant="light" className="table-responsive-md ">
