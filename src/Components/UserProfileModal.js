@@ -10,15 +10,20 @@ let techSkills = [];
 let nontechSkills = [];
 let programmingLanguages = [];
 let educationDetails = [];
-// let neweducationDetails=[];
 const UserProfileModal = (props) => {
-  // eslint-disable-next-line
+  const [proglang, setProglang] = useState("");
+  const [rating, setRating] = useState("");
+
   const [update, setupDate] = useState(false);
   const UpdateUserProfile = async () => {
-    // console.log(educationDetails);
 
+    if (proglang === "") {
+      alert("please select a particular language");
+      return;
+    }
+
+    props.handleClose();
     await educationDetails.filter((user, i) => i != 0);
-    // console.log(educationDetails);
     const user_data = {
       description: description,
       fieldOfExpertise: field,
@@ -34,9 +39,8 @@ const UserProfileModal = (props) => {
         console.log(res.data);
       });
   };
-  // useEffect(() => {
-  // //  console.log(neweducationDetails);
-  // }, [neweducationDetails])
+  useEffect(() => {
+  }, [proglang, rating]);
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -166,10 +170,12 @@ const UserProfileModal = (props) => {
                     <Form.Control
                       onChange={(e) => {
                         programmingLanguages[i].proglang = e.target.value;
+                        setProglang(e.target.value);
                       }}
+                      onClick={(e) => setProglang}
                       as="select"
-                      defaultValue="C++"
                     >
+                      <option value="">select</option>
                       <option value="C++">C++</option>
                       <option value="Pyhton">Python</option>
                       <option value="JS">JS</option>
@@ -181,6 +187,7 @@ const UserProfileModal = (props) => {
                     <Form.Control
                       onChange={(e) => {
                         programmingLanguages[i].rating = e.target.value;
+                        setRating(e.target.value);
                       }}
                       type="number"
                       placeholder="Eg: 69.26"
@@ -196,7 +203,6 @@ const UserProfileModal = (props) => {
               className="btn-sm my-2"
               onClick={() => {
                 programmingLanguages.push({
-                  // "proglang": programmingLanguages[i].proglang,
                 });
                 setupDate((prev) => !prev);
               }}
@@ -325,7 +331,6 @@ const UserProfileModal = (props) => {
               educationDetails,
               programmingLanguages
             );
-            props.handleClose();
             UpdateUserProfile();
           }}
         >
